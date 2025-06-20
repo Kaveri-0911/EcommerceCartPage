@@ -1,4 +1,3 @@
-/* styles.css */
 * {
   margin: 0;
   padding: 0;
@@ -6,58 +5,113 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #121212;
   color: #ffffff;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  padding: 40px 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: #f2f2f2;
+  color: #121212;
 }
 
 .container {
-  width: 400px;
-  padding: 20px;
+  width: 100%;
+  max-width: 500px;
   background-color: #1e1e1e;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-h1,
-h2 {
+body.light-mode .container {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+h1, h2 {
   margin-bottom: 20px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+form input, form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+form input {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+form button {
+  background-color: #6200ea;
+  color: white;
+  cursor: pointer;
+}
+
 #product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
   margin-bottom: 30px;
 }
 
 .product {
-  background-color: #333333;
+  background-color: #333;
   padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-radius: 5px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .product button {
-  background-color: #6200ea;
-  border: none;
+  margin-top: 5px;
   padding: 5px 10px;
-  color: #fff;
+  background-color: #6200ea;
+  color: white;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .product button:hover {
   background-color: #3700b3;
 }
 
-#cart-items {
-  margin-bottom: 20px;
+#cart-items div {
+  margin-bottom: 10px;
+}
+
+.remove-btn {
+  background-color: #b00020;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 #cart-total {
@@ -66,12 +120,11 @@ h2 {
 
 #checkout-btn {
   background-color: #6200ea;
+  color: white;
   border: none;
   padding: 10px;
-  color: white;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 #checkout-btn:hover {
@@ -80,4 +133,32 @@ h2 {
 
 .hidden {
   display: none;
+}
+
+#toggle-theme {
+  margin-bottom: 20px;
+  background: transparent;
+  border: 2px solid currentColor;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+#toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  background-color: #323232;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.toast.success {
+  background-color: #4caf50;
 }
